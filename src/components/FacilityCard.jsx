@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom';
 
+const FALLBACK_IMAGE =
+  'https://placehold.co/600x400?text=SportNest';
+
 const FacilityCard = ({ facility }) => {
   const {
     _id,
@@ -15,6 +18,10 @@ const FacilityCard = ({ facility }) => {
       <img
         src={image}
         alt={name}
+        onError={(e) => {
+          e.currentTarget.onerror = null;
+          e.currentTarget.src = FALLBACK_IMAGE;
+        }}
         className="h-48 w-full object-cover"
       />
       <div className="flex flex-1 flex-col p-5">
