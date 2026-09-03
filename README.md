@@ -9,7 +9,7 @@ manage their own facilities.
 ## Live URL
 - Client: <your-live-client-link-here>
 - Server: <your-live-server-link-here>
-
+## Live URL - Client: https://sportnest-client-2nl2.vercel.app - Server: https://sportnest-server-usu2.onrender.com
 ## Features
 - Firebase Authentication (Email/Password + Google Login)
 - JWT stored in httpOnly cookie for protecting private routes/APIs
