@@ -4,6 +4,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import useAuth from '../context/useAuth';
 import Loading from '../components/Loading';
+import ConfirmModal from '../components/ConfirmModal';
 import usePageTitle from '../hooks/usePageTitle';
 
 const ManageFacilities = () => {
@@ -11,6 +12,7 @@ const ManageFacilities = () => {
   const { user } = useAuth();
   const [facilities, setFacilities] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [targetId, setTargetId] = useState(null);
 
   const loadFacilities = () => {
     setLoading(true);
@@ -28,11 +30,9 @@ const ManageFacilities = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
-  const handleDelete = (id) => {
-    const confirmDelete = window.confirm(
-      'Are you sure you want to delete this facility? This action cannot be undone.'
-    );
-    if (!confirmDelete) return;
+  const confirmDelete = () => {
+    const id = targetId;
+    setTargetId(null);
 
     axios
       .delete(`${import.meta.env.VITE_API_URL}/facilities/${id}`, {
@@ -98,7 +98,7 @@ const ManageFacilities = () => {
                         Update
                       </Link>
                       <button
-                        onClick={() => handleDelete(f._id)}
+                        onClick={() => setTargetId(f._id)}
                         className="rounded-full bg-red-50 px-4 py-1.5 text-xs font-semibold text-red-600 hover:bg-red-100"
                       >
                         Delete
@@ -111,6 +111,14 @@ const ManageFacilities = () => {
           </table>
         </div>
       )}
+
+      <ConfirmModal
+        open={!!targetId}
+        title="Delete this facility?"
+        message="This action cannot be undone. All related data will be permanently removed."
+        onConfirm={confirmDelete}
+        onCancel={() => setTargetId(null)}
+      />
     </div>
   );
 };
