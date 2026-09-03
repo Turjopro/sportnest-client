@@ -114,11 +114,11 @@ const Navbar = () => {
         </div>
 
         {/* Mobile menu button */}
-        <button
-          className="text-2xl md:hidden"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
+       <button
+  onClick={() => setOpen(!open)}
+  aria-label="Open profile menu"
+  className="flex items-center gap-2 rounded-full border px-2 py-1"
+>
           ☰
         </button>
       </nav>
