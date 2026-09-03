@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import FacilityCard from '../components/FacilityCard';
 import Loading from '../components/Loading';
+import usePageTitle from '../hooks/usePageTitle';
 
 const sportTypes = [
   { name: 'Football Turf', icon: '⚽' },
@@ -29,6 +30,7 @@ const steps = [
 ];
 
 const Home = () => {
+  usePageTitle('Home');
   const [facilities, setFacilities] = useState([]);
   const [loading, setLoading] = useState(true);
 

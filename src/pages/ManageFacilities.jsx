@@ -4,8 +4,10 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import useAuth from '../context/useAuth';
 import Loading from '../components/Loading';
+import usePageTitle from '../hooks/usePageTitle';
 
 const ManageFacilities = () => {
+  usePageTitle('Manage Facilities');
   const { user } = useAuth();
   const [facilities, setFacilities] = useState([]);
   const [loading, setLoading] = useState(true);

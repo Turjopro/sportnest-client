@@ -3,6 +3,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../context/useAuth';
+import usePageTitle from '../hooks/usePageTitle';
 
 const facilityTypes = [
   'Football Turf',
@@ -14,6 +15,7 @@ const facilityTypes = [
 ];
 
 const AddFacility = () => {
+  usePageTitle('Add Facility');
   const { user } = useAuth();
   const navigate = useNavigate();
   const {

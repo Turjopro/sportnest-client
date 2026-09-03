@@ -3,8 +3,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { FcGoogle } from 'react-icons/fc';
 import useAuth from '../context/useAuth';
+import usePageTitle from '../hooks/usePageTitle';
 
 const Register = () => {
+  usePageTitle('Register');
   const { createUser, updateUserProfile, googleLogin, logoutUser } = useAuth();
   const navigate = useNavigate();
   const [errorMsg, setErrorMsg] = useState('');

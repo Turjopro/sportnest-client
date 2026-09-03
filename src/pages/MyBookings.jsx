@@ -4,6 +4,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import useAuth from '../context/useAuth';
 import Loading from '../components/Loading';
+import usePageTitle from '../hooks/usePageTitle';
 
 const statusStyles = {
   pending: 'bg-yellow-50 text-yellow-600',
@@ -12,6 +13,7 @@ const statusStyles = {
 };
 
 const MyBookings = () => {
+  usePageTitle('My Bookings');
   const { user } = useAuth();
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);

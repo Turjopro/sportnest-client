@@ -3,8 +3,10 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { FcGoogle } from 'react-icons/fc';
 import useAuth from '../context/useAuth';
+import usePageTitle from '../hooks/usePageTitle';
 
 const Login = () => {
+  usePageTitle('Login');
   const { loginUser, googleLogin } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();

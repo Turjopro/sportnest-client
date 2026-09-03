@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import Loading from '../components/Loading';
+import usePageTitle from '../hooks/usePageTitle';
 
 const facilityTypes = [
   'Football Turf',
@@ -15,6 +16,7 @@ const facilityTypes = [
 ];
 
 const UpdateFacility = () => {
+  usePageTitle('Update Facility');
   const { id } = useParams();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);

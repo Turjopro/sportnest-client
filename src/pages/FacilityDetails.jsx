@@ -4,8 +4,10 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import useAuth from '../context/useAuth';
 import Loading from '../components/Loading';
+import usePageTitle from '../hooks/usePageTitle';
 
 const FacilityDetails = () => {
+  usePageTitle('Facility Details');
   const { id } = useParams();
   const { user } = useAuth();
   const navigate = useNavigate();

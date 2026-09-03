@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import FacilityCard from '../components/FacilityCard';
 import Loading from '../components/Loading';
+import usePageTitle from '../hooks/usePageTitle';
 
 const facilityTypes = [
   'all',
@@ -14,6 +15,7 @@ const facilityTypes = [
 ];
 
 const AllFacilities = () => {
+  usePageTitle('All Facilities');
   const [facilities, setFacilities] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
